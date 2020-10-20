@@ -1,0 +1,72 @@
+<ion-content color="primary">
+  <!-- header -->
+  <ion-header class="header">
+    <ion-header class="ion-no-border">
+      <ion-toolbar color="primary">
+        <ion-title>
+          <ion-grid>
+            <div id="login-title">
+              <ion-text color="light">Conversando En El Aula App</ion-text> &nbsp;
+              <img src="/assets/icon.png" alt="" width="25" height="25">
+            </div>
+          </ion-grid>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+  </ion-header>
+
+  <!-- login Form -->
+  <ion-card class="login">
+    <div class="login__img">
+      <img src="/assets/icon.png" width="150" height="150"/>
+    </div>
+
+    <ion-card-content>
+      <form (ngSubmit)="onLogin()">
+        <ion-item>
+          <ion-label position="floating">Ingrese su correo</ion-label>
+          <ion-input type="email" [(ngModel)]="email" name="email" id="email" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Ingrese su clave</ion-label>
+          <ion-input type="password" [(ngModel)]="password" name="password" id="password"></ion-input>
+        </ion-item>
+
+        <ion-button expand="full" id="submit" type="submit">
+          <ion-spinner name="circles" *ngIf="spinner"></ion-spinner> &nbsp;
+          <ion-text color="light">{{!spinner ? 'Iniciar Sesión': 'Cargando'}}</ion-text>
+        </ion-button>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>Administrador</ion-label>
+            <ion-toggle name="admin" (ionChange)="loginUsersButtons($event)"></ion-toggle>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>Invitado</ion-label>
+            <ion-toggle color="secondary" name="invitado" (ionChange)="loginUsersButtons($event)"></ion-toggle>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Tester</ion-label>
+            <ion-toggle color="tertiary" name="tester" (ionChange)="loginUsersButtons($event)"></ion-toggle>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Anonimo</ion-label>
+            <ion-toggle color="warning" name="anonimo" (ionChange)="loginUsersButtons($event)"></ion-toggle>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Usuario</ion-label>
+            <ion-toggle color="dark" name="usuario" (ionChange)="loginUsersButtons($event)"></ion-toggle>
+          </ion-item>
+        </ion-list>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
