@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
 import { ChatsService } from '../../services/chats.service';
 import { ChatComponent } from '../../components/chat/chat.component';
@@ -19,15 +19,24 @@ export class HomePage implements OnInit {
     private authSvc: AuthService,
     private chatsSvc: ChatsService,
     private modalCtlr: ModalController,
+    private loadingCtlr: LoadingController,
     private router: Router
   ) {  }
 
   ngOnInit(): void {
+    const loading = this.loadingCtlr.create({
+      message: 'Cargando. . .',
+      duration: 1500
+    }).then(loading => {
+      loading.present()
+    });
+
     this.chatsSvc.getChatRooms()
     .subscribe(
       chats => this.chatRooms = chats,
       err => console.log(err)
     );
+
   }
 
   onLogout(): void {

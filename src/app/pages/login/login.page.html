@@ -39,11 +39,25 @@
         </ion-button>
 
         <ion-list>
-          <ion-button color="primary" id="admin" (click)="loginUsersButtons($event)" expand="full">Administrador</ion-button>
-          <ion-button color="secondary" id="invitado" (click)="loginUsersButtons($event)" expand="full">Invitado</ion-button>
-          <ion-button color="tertiary" id="usuario" (click)="loginUsersButtons($event)" expand="full">Usuario</ion-button>
-          <ion-button color="warning" id="tester" (click)="loginUsersButtons($event)" expand="full">Tester</ion-button>
-          <ion-button color="danger" id="anonimo" (click)="loginUsersButtons($event)" expand="full">Anonimo</ion-button>
+          <ion-button color="primary" id="admin" (click)="loginUsersButtons($event)" expand="full">
+            <ion-text color="light">Administrador</ion-text>
+          </ion-button>
+
+          <ion-button color="secondary" id="invitado" (click)="loginUsersButtons($event)" expand="full">
+            <ion-text color="light">Invitado</ion-text>
+          </ion-button>
+
+          <ion-button color="tertiary" id="usuario" (click)="loginUsersButtons($event)" expand="full">
+            <ion-text color="light">Usuario</ion-text>
+          </ion-button>
+
+          <ion-button color="warning" id="tester" (click)="loginUsersButtons($event)" expand="full">
+            <ion-text color="light">Tester</ion-text>
+          </ion-button>
+
+          <ion-button color="danger" id="anonimo" (click)="loginUsersButtons($event)" expand="full">
+            <ion-text color="light">Anonimo</ion-text>
+          </ion-button>
         </ion-list>
       </form>
     </ion-card-content>
