@@ -62,7 +62,7 @@ export class ChatComponent implements OnInit {
 
   scrollToBottom(firstTime = false) {
     firstTime? 
-    setTimeout(() => this.content.scrollToBottom(1000),950): 
+    setTimeout(() => this.content.scrollToBottom(1000),1500): 
     setTimeout(() => this.content.scrollToBottom(200), 200);
   }
 }
