@@ -3,14 +3,15 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { User } from 'firebase';
 import { Observable, of } from 'rxjs';
-import { switchMap, first } from 'rxjs/operators';
+import { switchMap, first, filter, map } from 'rxjs/operators';
+import { Usuario } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  public user$: Observable<User>;
+  public user$: Observable<any>;
 
   constructor(
     private afAuth: AngularFireAuth, 
@@ -19,7 +20,17 @@ export class AuthService {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
-          return this.db.doc(`usuarios/${user.uid}`).valueChanges();
+          return this.db.collection('usuarios').doc(user.uid).snapshotChanges().pipe(
+            filter(actions => {
+            return actions.payload.id === user.uid;
+            }),
+            map(actions => {
+              const obj: any = {};
+              obj.id = actions.payload.id;
+              obj.data = actions.payload.data();
+              return obj;
+            })
+          );
         }
         return of(null);
       })

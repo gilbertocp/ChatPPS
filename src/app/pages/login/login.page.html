@@ -1,4 +1,4 @@
-<ion-content color="primary">
+<ion-content color="light">
   <!-- header -->
   <ion-header class="header">
     <ion-header class="ion-no-border">
@@ -39,30 +39,11 @@
         </ion-button>
 
         <ion-list>
-          <ion-item>
-            <ion-label>Administrador</ion-label>
-            <ion-toggle name="admin" (ionChange)="loginUsersButtons($event)"></ion-toggle>
-          </ion-item>
-        
-          <ion-item>
-            <ion-label>Invitado</ion-label>
-            <ion-toggle color="secondary" name="invitado" (ionChange)="loginUsersButtons($event)"></ion-toggle>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Tester</ion-label>
-            <ion-toggle color="tertiary" name="tester" (ionChange)="loginUsersButtons($event)"></ion-toggle>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Anonimo</ion-label>
-            <ion-toggle color="warning" name="anonimo" (ionChange)="loginUsersButtons($event)"></ion-toggle>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Usuario</ion-label>
-            <ion-toggle color="dark" name="usuario" (ionChange)="loginUsersButtons($event)"></ion-toggle>
-          </ion-item>
+          <ion-button color="primary" id="admin" (click)="loginUsersButtons($event)" expand="full">Administrador</ion-button>
+          <ion-button color="secondary" id="invitado" (click)="loginUsersButtons($event)" expand="full">Invitado</ion-button>
+          <ion-button color="tertiary" id="usuario" (click)="loginUsersButtons($event)" expand="full">Usuario</ion-button>
+          <ion-button color="warning" id="tester" (click)="loginUsersButtons($event)" expand="full">Tester</ion-button>
+          <ion-button color="danger" id="anonimo" (click)="loginUsersButtons($event)" expand="full">Anonimo</ion-button>
         </ion-list>
       </form>
     </ion-card-content>

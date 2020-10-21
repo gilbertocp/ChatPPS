@@ -24,8 +24,6 @@ export class LoginPage implements OnInit {
   }
 
   onLogin(): void {
-    console.log(this.email, this.password);
-    
     this.spinner = true;
     
     this.authSvc.login(this.email, this.password)
@@ -38,7 +36,7 @@ export class LoginPage implements OnInit {
   }
 
   loginUsersButtons({ target }): void {
-    switch(target.name) {
+    switch(target.id) {
       case 'tester':
         this.email = 'tester@tester.com';
         this.password = '555555';
